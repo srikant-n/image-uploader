@@ -1,31 +1,24 @@
-import logo from "./logo.svg";
+// import image from "/image.svg";
 import "./App.scss";
+import {UploadPage} from "./components/UploadPage"
+import {Uploading} from "./components/Uploading"
 import { useEffect, useState } from "react";
+import {Button, Card, Container} from "react-bootstrap";
+import { UploadDone } from "./components/UploadDone";
 
 function App() {
   const [connectionText, setConnectionText] = useState("Connecting to Express server");
 
-  useEffect(() => {
-    fetch("/express_backend")
-      .then((response) => response.json())
-      .then((data) => setConnectionText(data.express))
-      .catch((e) => console.log(e));
-  });
+  // useEffect(() => {
+  //   fetch("/express_backend")
+  //     .then((response) => response.json())
+  //     .then((data) => setConnectionText(data.express))
+  //     .catch((e) => console.log(e));
+  // });
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{connectionText}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <UploadPage />
     </div>
   );
 }
