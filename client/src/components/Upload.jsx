@@ -1,6 +1,6 @@
 import { Card, ProgressBar } from "react-bootstrap";
 
-function Uploading() {
+function Upload() {
   return (
     <Card className="base-card uploading-card">
       <Card.Body>
@@ -14,4 +14,4 @@ function Uploading() {
   );
 }
 
-export { Uploading };
+export { Upload };
