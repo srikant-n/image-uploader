@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Container that allows dragging and dropping images onto it
+ * @param {Props} props Proerties passed from parent component
+ */
 function DragAndDrop(props) {
   const dropRef = useRef(null);
+  // When we go over child elements
   const [dragCount, setDragCount] = useState(0);
+  // Is the file being dragged an image?
   const [isImage, setIsImage] = useState(false);
 
   function handleDrag(event) {
@@ -10,6 +16,10 @@ function DragAndDrop(props) {
     event.stopPropagation();
   }
 
+  /**
+   * File dragged into component
+   * @param {Event} event Dragged object event
+   */
   function handleDragIn(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -17,6 +27,10 @@ function DragAndDrop(props) {
     setIsImage(event.dataTransfer.items && event.dataTransfer.items[0].type.match(/image.*/));
   }
 
+  /**
+   * File dragged out of component
+   * @param {Event} event Dragged object event
+   */
   function handleDragOut(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -26,6 +40,10 @@ function DragAndDrop(props) {
     });
   }
 
+  /**
+   * File dropped on component
+   * @param {Event} event Dropped object event
+   */
   function handleDrop(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -57,6 +75,9 @@ function DragAndDrop(props) {
     };
   });
 
+  /**
+   * Highlight component based on the file type
+   */
   function getHighlightClass() {
     if (dragCount > 0) {
       return isImage ? "shadow-green" : "shadow-red";
