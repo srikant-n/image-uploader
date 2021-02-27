@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,9 @@
     "express": "^4.17.1",
     "find-remove": "^2.0.3",
     "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "cypress": "^6.5.0",
+    "cypress-file-upload": "^5.0.2"
   }
 }

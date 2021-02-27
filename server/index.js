@@ -37,16 +37,16 @@ app.get("/", () =>{
  * Delete old images
  */
 function deleteOldFiles() {
+  let removedCount = 0;
   if (imageCount > 100) {
-    findRemoveSync(path.join(__dirname, "public/image"), {prefix:'image', age: {seconds: 10}, limit: imageCount-1});
-    imageCount = 1;
+    removedCount = (findRemoveSync(path.join(__dirname, "public/image"), {prefix:'image', age: {seconds: 10}, limit: imageCount-1})).length;
   } else if (imageCount > 20) {
-    findRemoveSync(path.join(__dirname, "public/image"), {prefix:'image', age: {seconds: 50}, limit: imageCount-10});
-    imageCount = 10;
+    removedCount = (findRemoveSync(path.join(__dirname, "public/image"), {prefix:'image', age: {seconds: 50}, limit: imageCount-8}));
   } else {
-    findRemoveSync(path.join(__dirname, "public/image"), {prefix:'image', age: {seconds: 3600}, limit: 3});
-    imageCount -= 3;
+    removedCount = (findRemoveSync(path.join(__dirname, "public/image"), {prefix:'image', age: {seconds: 3600}, limit: 3}));
   }
+
+  imageCount -= removedCount;
 }
 
 deleteOldFiles();
