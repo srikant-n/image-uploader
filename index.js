@@ -10,8 +10,13 @@ const port = process.env.PORT || 5000;
 
 // compress responses
 app.use(compression());
-app.use(helmet());
 app.use(cors());
+// This disables the `contentSecurityPolicy` middleware but keeps the rest.
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 /**
  * Define path and naming for multer package to save images
