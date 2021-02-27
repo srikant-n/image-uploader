@@ -1,9 +1,17 @@
 const path = require("path");
 const express = require("express");
 const multer = require("multer");
-const findRemoveSync = require('find-remove')
+const findRemoveSync = require('find-remove');
+const cors = require("cors");
+const compression = require('compression');
+const helmet = require("helmet");
 const app = express();
 const port = process.env.PORT || 5000;
+
+// compress responses
+app.use(compression());
+app.use(helmet());
+app.use(cors());
 
 /**
  * Define path and naming for multer package to save images
