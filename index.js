@@ -37,7 +37,7 @@ setInterval(findRemoveSync.bind(this,path.join(__dirname, "public/image"), {pref
 
 const fs = require("fs");
 let imageCount = fs.readdirSync(path.join(__dirname, "public/image")).length;
-app.get("/", () =>{
+app.get("/", (req,res) =>{
   res.sendFile("./build/index.html");
 });
 
