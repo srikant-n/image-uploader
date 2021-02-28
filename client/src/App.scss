@@ -1,3 +1,15 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+
+  @media (max-height: 500px) {
+    top: 500px;
+    bottom: none;
+  }
+}
+
 .base-card {
   position: absolute;
   left: 50%;
@@ -95,7 +107,7 @@ progress {
 .toast-holder {
   width: 0;
   height: 0;
-  margin:-10px;
+  margin: -10px;
   z-index: 2;
 }
 

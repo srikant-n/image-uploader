@@ -74,13 +74,20 @@ function App() {
       case STATE_UPLOAD:
         return <Upload />;
       case STATE_UPLOAD_FINISH:
-        return (
-          <UploadDone isDone={imageUrl.length > 0} imageUrl={imageUrl} onClickNew={onClickNew} />
-        );
+        return  <UploadDone isDone={imageUrl.length > 0} imageUrl={imageUrl} onClickNew={onClickNew} />;
     }
   }
 
-  return getView();
+  return (
+    <div>
+      {getView()}
+      <footer>
+        <p>
+          Created by <a href="https://github.com/srikant-n">Srikant Nimmagadda</a>
+        </p>
+      </footer>
+    </div>
+  );
 }
 
 export default App;
