@@ -39,7 +39,7 @@
 
 ## Overview
 
-![screenshot](screenshot.png)
+![screenshot](screenshot.PNG)
 
 [Demo Link](https://sn-image-uploader.herokuapp.com/)
 
